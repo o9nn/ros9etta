@@ -1,0 +1,229 @@
+#!/usr/bin/env python3
+"""
+OpenCog Inferno Kernel Interface
+
+Command-line tool for interacting with the Inferno cognitive kernel.
+"""
+
+import sys
+import argparse
+from pathlib import Path
+
+# Add parent directory to path for package import
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+try:
+    # Try package import first
+    from inferno_kernel import InfernoKernelBridge, TruthValue, Atom
+except ImportError:
+    # Fallback to direct import if package not available
+    import importlib.util
+    bridge_path = Path(__file__).parent.parent / "inferno-kernel" / "lib" / "inferno_bridge.py"
+    spec = importlib.util.spec_from_file_location("inferno_bridge", bridge_path)
+    inferno_bridge = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(inferno_bridge)
+    
+    InfernoKernelBridge = inferno_bridge.InfernoKernelBridge
+    TruthValue = inferno_bridge.TruthValue
+    Atom = inferno_bridge.Atom
+
+
+def cmd_boot(args):
+    """Boot the cognitive kernel."""
+    print("\n═══════════════════════════════════════════════════════")
+    print("   OPENCOG INFERNO KERNEL - BOOT SEQUENCE")
+    print("   Cognitive Operating System")
+    print("═══════════════════════════════════════════════════════\n")
+    
+    kernel = InfernoKernelBridge()
+    status = kernel.init()
+    
+    print(f"✓ Kernel initialized: {status['kernel']} v{status['version']}")
+    print(f"✓ Attention budget: {status['attention_budget']} STI")
+    print(f"✓ Max atoms: {status['max_atoms']}")
+    print("\n═══════════════════════════════════════════════════════")
+    print("   COGNITIVE KERNEL READY")
+    print("   Use 'opencog-inferno' commands to interact")
+    print("═══════════════════════════════════════════════════════\n")
+    
+    return kernel
+
+
+def cmd_demo(args):
+    """Run a demonstration of cognitive capabilities."""
+    print("\n=== Cognitive Kernel Demonstration ===\n")
+    
+    kernel = InfernoKernelBridge()
+    kernel.init()
+    
+    # Create self-awareness
+    print("[1] Creating self-concept...")
+    tv = TruthValue(1.0, 1.0)
+    self_atom = kernel.create_atom("self", tv)
+    print(f"    Created: {self_atom.name} ({self_atom.truth_value.strength:.2f}, {self_atom.truth_value.confidence:.2f})")
+    
+    # Create awareness
+    print("\n[2] Creating awareness...")
+    tv = TruthValue(0.9, 0.8)
+    aware_atom = kernel.create_atom("awareness", tv)
+    print(f"    Created: {aware_atom.name} ({aware_atom.truth_value.strength:.2f}, {aware_atom.truth_value.confidence:.2f})")
+    
+    # Link them
+    print("\n[3] Linking self and awareness...")
+    link = kernel.create_link(self_atom, aware_atom, "InheritanceLink")
+    print(f"    Link: {link.source.name} -> {link.target.name}")
+    
+    # Reason
+    print("\n[4] Reasoning about existence...")
+    inferences = kernel.deduce([self_atom, aware_atom])
+    for inf in inferences:
+        print(f"    Inference: {inf.conclusion.name} (rule: {inf.rule})")
+        print(f"    Truth: ({inf.truth_value.strength:.2f}, {inf.truth_value.confidence:.2f})")
+    
+    # Focus attention
+    print("\n[5] Focusing attention...")
+    kernel.focus(self_atom, 100.0)
+    importance = kernel.importance(self_atom)
+    print(f"    Self importance: {importance:.1f} STI")
+    
+    # Think
+    print("\n[6] Thinking...")
+    thought = kernel.think("consciousness")
+    print(f"    Thought: {thought}")
+    
+    # Reflect
+    print("\n[7] Reflecting...")
+    insight = kernel.reflect(cycle=1)
+    print(f"    Insight: {insight['insight']}")
+    print(f"    Atoms: {insight['atoms']}, Links: {insight['links']}")
+    
+    print("\n=== Demonstration Complete ===\n")
+
+
+def cmd_create(args):
+    """Create a new atom."""
+    kernel = InfernoKernelBridge()
+    kernel.init()
+    
+    tv = TruthValue(args.strength, args.confidence)
+    atom = kernel.create_atom(args.name, tv)
+    
+    print(f"Created atom: {atom.name}")
+    print(f"  ID: {atom.id}")
+    print(f"  Type: {atom.atom_type}")
+    print(f"  Truth: ({atom.truth_value.strength:.2f}, {atom.truth_value.confidence:.2f})")
+
+
+def cmd_think(args):
+    """Generate a thought."""
+    kernel = InfernoKernelBridge()
+    kernel.init()
+    
+    # Create some knowledge first
+    tv = TruthValue(0.8, 0.7)
+    for word in args.context.split():
+        kernel.create_atom(word, tv)
+    
+    thought = kernel.think(args.context)
+    print(f"Thought: {thought}")
+
+
+def cmd_reason(args):
+    """Perform reasoning."""
+    kernel = InfernoKernelBridge()
+    kernel.init()
+    
+    # Create premises
+    premises = []
+    for name in args.premises:
+        tv = TruthValue(0.8, 0.7)
+        atom = kernel.create_atom(name, tv)
+        premises.append(atom)
+    
+    # Deduce
+    inferences = kernel.deduce(premises)
+    
+    print(f"Inferences from {len(premises)} premises:")
+    for inf in inferences:
+        print(f"  {inf.conclusion.name} (rule: {inf.rule})")
+        print(f"  Truth: ({inf.truth_value.strength:.2f}, {inf.truth_value.confidence:.2f})")
+
+
+def cmd_status(args):
+    """Show kernel status."""
+    kernel = InfernoKernelBridge()
+    status = kernel.init()
+    
+    print("\n=== Cognitive Kernel Status ===")
+    print(f"Kernel: {status['kernel']}")
+    print(f"Version: {status['version']}")
+    print(f"Status: {status['status']}")
+    print(f"Attention Budget: {status['attention_budget']} STI")
+    print(f"Max Atoms: {status['max_atoms']}")
+    
+    state = kernel.export_state()
+    stats = state['statistics']
+    print(f"\nCurrent State:")
+    print(f"  Atoms: {stats['total_atoms']}")
+    print(f"  Links: {stats['total_links']}")
+    print(f"  Attention Budget: {stats['attention_budget']} STI")
+    print()
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="OpenCog Inferno Kernel Interface",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  opencog-inferno boot              Boot the cognitive kernel
+  opencog-inferno demo              Run demonstration
+  opencog-inferno create "concept"  Create an atom
+  opencog-inferno think "what am I" Generate a thought
+  opencog-inferno reason A B C      Reason from premises
+  opencog-inferno status            Show kernel status
+        """
+    )
+    
+    subparsers = parser.add_subparsers(dest='command', help='Command to execute')
+    
+    # Boot command
+    boot_parser = subparsers.add_parser('boot', help='Boot the cognitive kernel')
+    boot_parser.set_defaults(func=cmd_boot)
+    
+    # Demo command
+    demo_parser = subparsers.add_parser('demo', help='Run demonstration')
+    demo_parser.set_defaults(func=cmd_demo)
+    
+    # Create command
+    create_parser = subparsers.add_parser('create', help='Create an atom')
+    create_parser.add_argument('name', help='Atom name')
+    create_parser.add_argument('--strength', type=float, default=0.8, help='Truth strength')
+    create_parser.add_argument('--confidence', type=float, default=0.7, help='Truth confidence')
+    create_parser.set_defaults(func=cmd_create)
+    
+    # Think command
+    think_parser = subparsers.add_parser('think', help='Generate a thought')
+    think_parser.add_argument('context', help='Context for thinking')
+    think_parser.set_defaults(func=cmd_think)
+    
+    # Reason command
+    reason_parser = subparsers.add_parser('reason', help='Perform reasoning')
+    reason_parser.add_argument('premises', nargs='+', help='Premise atoms')
+    reason_parser.set_defaults(func=cmd_reason)
+    
+    # Status command
+    status_parser = subparsers.add_parser('status', help='Show kernel status')
+    status_parser.set_defaults(func=cmd_status)
+    
+    args = parser.parse_args()
+    
+    if not args.command:
+        parser.print_help()
+        sys.exit(1)
+    
+    args.func(args)
+
+
+if __name__ == '__main__':
+    main()

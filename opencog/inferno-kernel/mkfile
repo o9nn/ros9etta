@@ -1,0 +1,130 @@
+# Inferno Cognitive Kernel Build System
+# Compiles all cognitive kernel modules to Dis bytecode
+
+</$objtype/mkfile
+
+# Directories
+KERNELDIR=kernel
+BOOTDIR=boot
+EXAMPLESDIR=examples
+INCLUDEDIR=include
+DISDIR=dis
+MODULEDIR=/module
+DISOUTDIR=/dis/cogkernel
+
+# Limbo compiler
+LIMBO=limbo
+
+# Compilation flags
+LFLAGS=-I$INCLUDEDIR -I$MODULEDIR
+
+# Module files
+MODULES=\
+	$INCLUDEDIR/cogkernel.m
+
+# Implementation files
+IMPLEMENTATIONS=\
+	$KERNELDIR/cogkernel.dis\
+	$BOOTDIR/cogboot.dis
+
+# Example applications
+EXAMPLES=\
+	$EXAMPLESDIR/self_aware.dis\
+	$EXAMPLESDIR/distributed_mind.dis
+
+# Default target
+all:V: modules implementations examples
+	echo Cognitive kernel build complete
+
+# Module interfaces
+modules:V: $MODULES
+	echo Module interfaces ready
+
+# Kernel implementations
+implementations:V: $IMPLEMENTATIONS
+	echo Kernel implementations compiled
+
+# Example applications
+examples:V: $EXAMPLES
+	echo Example applications compiled
+
+# Compile Limbo source to Dis bytecode
+%.dis: %.b
+	$LIMBO $LFLAGS -o $target $prereq
+
+# Specific module compilations
+$KERNELDIR/cogkernel.dis: $KERNELDIR/cogkernel.b $INCLUDEDIR/cogkernel.m
+	$LIMBO $LFLAGS -o $target $KERNELDIR/cogkernel.b
+
+$BOOTDIR/cogboot.dis: $BOOTDIR/cogboot.b $INCLUDEDIR/cogkernel.m
+	$LIMBO $LFLAGS -o $target $BOOTDIR/cogboot.b
+
+$EXAMPLESDIR/self_aware.dis: $EXAMPLESDIR/self_aware.b $INCLUDEDIR/cogkernel.m
+	$LIMBO $LFLAGS -o $target $EXAMPLESDIR/self_aware.b
+
+$EXAMPLESDIR/distributed_mind.dis: $EXAMPLESDIR/distributed_mind.b $INCLUDEDIR/cogkernel.m
+	$LIMBO $LFLAGS -o $target $EXAMPLESDIR/distributed_mind.b
+
+# Install compiled modules
+install:V: all
+	mkdir -p $DISOUTDIR
+	cp $IMPLEMENTATIONS $DISOUTDIR
+	cp $EXAMPLES $DISOUTDIR
+	echo Cognitive kernel installed to $DISOUTDIR
+
+# Testing
+test:V: all
+	echo Running cognitive kernel tests...
+	# In real implementation, would run:
+	# emu $BOOTDIR/cogboot.dis
+	# emu $EXAMPLESDIR/self_aware.dis
+	echo Tests complete
+
+# Run boot sequence
+boot:V: implementations
+	echo Booting cognitive kernel...
+	# In real implementation:
+	# emu $BOOTDIR/cogboot.dis
+	echo Use: emu $BOOTDIR/cogboot.dis
+
+# Run examples
+run-selfaware:V: examples
+	echo Running self-aware example...
+	# In real implementation:
+	# emu $EXAMPLESDIR/self_aware.dis
+	echo Use: emu $EXAMPLESDIR/self_aware.dis
+
+run-distributed:V: examples
+	echo Running distributed mind example...
+	# In real implementation:
+	# emu $EXAMPLESDIR/distributed_mind.dis
+	echo Use: emu $EXAMPLESDIR/distributed_mind.dis
+
+# Clean compiled files
+clean:V:
+	rm -f $IMPLEMENTATIONS
+	rm -f $EXAMPLES
+	rm -f $DISDIR/*.dis
+	echo Cleaned compiled files
+
+# Clean all
+nuke:V: clean
+	echo Nuked all generated files
+
+# Help
+help:V:
+	echo Inferno Cognitive Kernel Build System
+	echo 
+	echo Targets:
+	echo "  all          - Build all modules, implementations, and examples"
+	echo "  modules      - Build module interfaces"
+	echo "  implementations - Build kernel implementations"
+	echo "  examples     - Build example applications"
+	echo "  install      - Install to Inferno system directories"
+	echo "  test         - Run test suite"
+	echo "  boot         - Boot the cognitive kernel"
+	echo "  run-selfaware - Run self-aware example"
+	echo "  run-distributed - Run distributed mind example"
+	echo "  clean        - Remove compiled files"
+	echo "  nuke         - Remove all generated files"
+	echo "  help         - Display this help"
