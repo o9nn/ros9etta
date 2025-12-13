@@ -54,7 +54,7 @@ CogKernel: module {
     };
     
     AttentionValue: adt {
-        sti: real;  # Short-term importance [-1,1]
+        sti: real;  # Short-term importance (unbounded, typically -1000 to 1000)
         lti: real;  # Long-term importance [0,1]
         vlti: int;  # Very long-term importance flag
     };

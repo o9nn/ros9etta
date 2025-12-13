@@ -127,8 +127,13 @@ class InfernoKernelBridge:
         """Locate Inferno kernel executable."""
         # Check environment variable first
         kernel_path = os.environ.get('INFERNO_COGKERNEL_PATH')
-        if kernel_path and os.path.exists(kernel_path):
-            return kernel_path
+        if kernel_path:
+            # If it's a command, return as-is; if it's a file, prepend 'emu'
+            if os.path.exists(kernel_path) and os.path.isfile(kernel_path):
+                return f"emu {kernel_path}"
+            elif not os.path.exists(kernel_path):
+                # Assume it's a command string
+                return kernel_path
         
         # Check standard locations
         standard_paths = [
@@ -392,9 +397,8 @@ class InfernoKernelBridge:
             return f"No knowledge about: {context}"
         
         # Find highest-importance atom
-        if relevant:
-            best = max(relevant, key=lambda a: a.sti)
-            return f"Thinking about {context}: related to {best.name} (STI={best.sti:.1f})"
+        best = max(relevant, key=lambda a: a.sti)
+        return f"Thinking about {context}: related to {best.name} (STI={best.sti:.1f})"
         
         return f"Thought about: {context}"
     

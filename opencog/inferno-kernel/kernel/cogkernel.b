@@ -439,8 +439,10 @@ CogKernel.sys_think(sys: ref CogSystem, context: string): string
         return "No knowledge about: " + context;
     
     # Find most important atom
+    # Use very low initial value to ensure any atom is selected
+    MIN_STI := -1000.0;
     best: ref Atom = nil;
-    max_sti := -1000.0;
+    max_sti := MIN_STI;
     
     for (atoms := relevant; atoms != nil; atoms = tl atoms) {
         atom := hd atoms;
