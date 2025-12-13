@@ -12,6 +12,8 @@ OpenCog is a comprehensive meta-evaluation system that:
    LLM reasoning tasks using Agent-Zero and cognitive patterns
 4. **Pattern Language for AGI**: Maintains a living library of foundational cognitive 
    patterns inspired by Christopher Alexander's architectural patterns
+5. **Inferno Cognitive Kernel**: **NEW** - Revolutionary pure Inferno kernel-based distributed 
+   AGI operating system where thinking, reasoning, and intelligence are fundamental OS services
 
 ## Hypergraph Analysis (NEW)
 
@@ -89,6 +91,83 @@ system.print_summary()
 ```
 
 See `opencog/ATOM_TYPES.md` for complete mathematical formalism and usage.
+
+## Inferno Cognitive Kernel (NEW)
+
+OpenCog now includes a **revolutionary pure Inferno kernel-based distributed AGI operating system**:
+
+### Revolutionary Paradigm
+
+Instead of layering cognitive architectures on top of existing operating systems, the Inferno 
+Cognitive Kernel makes **cognitive processing a fundamental kernel service** where thinking, 
+reasoning, and intelligence emerge from the operating system itself.
+
+### Key Features
+
+1. **Cognition as OS Service**
+   - Thinking, reasoning, and learning are kernel-level operations
+   - Cognitive syscalls: `sys_think()`, `sys_reason()`, `sys_learn()`, `sys_attend()`
+   - AtomSpace as kernel memory (hypergraph at OS level)
+   - PLN (Probabilistic Logic Networks) as kernel reasoning engine
+
+2. **Pure Limbo Implementation**
+   - 100% type-safe cognitive primitives
+   - Dis VM bytecode execution (platform-independent)
+   - Automatic garbage collection (memory-safe reasoning)
+   - Module system with clean interface separation
+
+3. **Distributed Cognition via 9P**
+   - Network-transparent distributed thinking
+   - Mount remote cognitive spaces
+   - Share knowledge across nodes
+   - Collective intelligence through federation
+
+4. **Attention-Based Scheduling**
+   - STI/LTI-based resource allocation
+   - High-importance atoms get CPU time
+   - Economic attention model (spreading activation)
+   - Meta-learning scheduler optimization
+
+### Quick Start
+
+```bash
+# Boot cognitive kernel
+cd opencog/inferno-kernel
+mk all && mk boot
+
+# Run self-aware example
+mk run-selfaware
+
+# Run distributed mind example
+mk run-distributed
+
+# Python bridge demo
+python3 opencog/inferno-kernel/lib/inferno_bridge.py
+```
+
+### Python Integration
+
+```python
+from opencog.inferno_kernel.lib.inferno_bridge import (
+    InfernoKernelBridge, TruthValue
+)
+
+# Initialize kernel
+kernel = InfernoKernelBridge()
+kernel.init()
+
+# Create knowledge
+tv = TruthValue(0.9, 0.8)
+atom = kernel.create_atom("consciousness", tv)
+
+# Reasoning
+inferences = kernel.deduce([atom1, atom2])
+
+# Thinking
+thought = kernel.think("what am I?")
+```
+
+See `opencog/inferno-kernel/README.md` for complete documentation.
 
 ## Multi-Agent Reasoning System
 
