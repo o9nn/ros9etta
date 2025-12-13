@@ -9,19 +9,23 @@ import sys
 import argparse
 from pathlib import Path
 
-# Add parent directory to path
+# Add parent directory to path for package import
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-# Import from the correct location
-import importlib.util
-bridge_path = Path(__file__).parent.parent / "inferno-kernel" / "lib" / "inferno_bridge.py"
-spec = importlib.util.spec_from_file_location("inferno_bridge", bridge_path)
-inferno_bridge = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(inferno_bridge)
-
-InfernoKernelBridge = inferno_bridge.InfernoKernelBridge
-TruthValue = inferno_bridge.TruthValue
-Atom = inferno_bridge.Atom
+try:
+    # Try package import first
+    from inferno_kernel import InfernoKernelBridge, TruthValue, Atom
+except ImportError:
+    # Fallback to direct import if package not available
+    import importlib.util
+    bridge_path = Path(__file__).parent.parent / "inferno-kernel" / "lib" / "inferno_bridge.py"
+    spec = importlib.util.spec_from_file_location("inferno_bridge", bridge_path)
+    inferno_bridge = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(inferno_bridge)
+    
+    InfernoKernelBridge = inferno_bridge.InfernoKernelBridge
+    TruthValue = inferno_bridge.TruthValue
+    Atom = inferno_bridge.Atom
 
 
 def cmd_boot(args):

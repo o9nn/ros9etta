@@ -54,9 +54,18 @@ init(nil: ref Draw->Context, args: list of string)
     # Distributed reasoning
     sys->print("\n[Distributed] Combining knowledge from both nodes...\n");
     
-    # In real implementation, would access via 9P:
-    # mount -A tcp!remotehost!9P /mnt/remotemind
-    # Access remote atoms via filesystem: /mnt/remotemind/atomspace/nodes/
+    # Real 9P implementation would work as follows:
+    # 1. Start 9P server on remote node:
+    #    styxlisten -A tcp!*!9P export /cogkernel
+    # 2. Mount from local node:
+    #    mount -A tcp!remotehost!9P /mnt/remotemind
+    # 3. Access remote atoms via filesystem:
+    #    cat /mnt/remotemind/atomspace/nodes/concept_X
+    # 4. File operations trigger kernel operations:
+    #    - Read file = query kernel for atom
+    #    - Write file = create/update atom in remote kernel
+    #    - Directory listing = enumerate atoms by type
+    # See ARCHITECTURE.md section "Distributed Cognition via 9P" for details
     
     # Simulate knowledge sharing
     shared_knowledge := cogkernel->createatom(local_sys, "shared_knowledge", tv1);

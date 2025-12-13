@@ -432,6 +432,38 @@ CogKernel.sys_think(sys: ref CogSystem, context: string): string
         return "Error: no cognitive system";
     
     # Thinking: perceive context, reason about it, generate thought
+    # Query atomspace for relevant atoms
+    relevant := sys.atomspace.query(context);
+    
+    if (relevant == nil || len relevant == 0)
+        return "No knowledge about: " + context;
+    
+    # Find most important atom
+    best: ref Atom = nil;
+    max_sti := -1000.0;
+    
+    for (atoms := relevant; atoms != nil; atoms = tl atoms) {
+        atom := hd atoms;
+        if (atom != nil && atom.sti > max_sti) {
+            best = atom;
+            max_sti = atom.sti;
+        }
+    }
+    
+    if (best != nil) {
+        # Perform inference on the best atom
+        premises := best :: nil;
+        inferences := sys.pln.deduce(premises);
+        
+        if (inferences != nil) {
+            inf := hd inferences;
+            return "Thought: " + context + " relates to " + best.name + 
+                   " (concluded: " + inf.conclusion.name + ")";
+        }
+        
+        return "Thought: " + context + " strongly relates to " + best.name;
+    }
+    
     return "Thought about: " + context;
 }
 

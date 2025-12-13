@@ -6,6 +6,7 @@ Provides Python interface to the Inferno cognitive kernel,
 enabling integration with existing OpenCog Python ecosystem.
 """
 
+import os
 import json
 import subprocess
 from typing import List, Dict, Optional, Tuple
@@ -124,7 +125,23 @@ class InfernoKernelBridge:
         
     def _find_kernel(self) -> str:
         """Locate Inferno kernel executable."""
-        # In real implementation, would find actual Inferno binary
+        # Check environment variable first
+        kernel_path = os.environ.get('INFERNO_COGKERNEL_PATH')
+        if kernel_path and os.path.exists(kernel_path):
+            return kernel_path
+        
+        # Check standard locations
+        standard_paths = [
+            "/dis/cogkernel/cogboot.dis",
+            "/opt/inferno/dis/cogkernel/cogboot.dis",
+            str(Path.home() / "inferno" / "dis" / "cogkernel" / "cogboot.dis")
+        ]
+        
+        for path in standard_paths:
+            if os.path.exists(path):
+                return f"emu {path}"
+        
+        # Fallback to default (may not exist on all systems)
         return "emu /dis/cogkernel/cogboot.dis"
     
     def init(self) -> Dict:
