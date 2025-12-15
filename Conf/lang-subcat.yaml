@@ -1,0 +1,1216 @@
+# Language to Subcategory Mapping
+# Maps ~970 languages to their paradigm subcategories
+# Format: Subcategory: [list of languages]
+
+# ============================================================================
+# IMPERATIVE PARADIGM
+# ============================================================================
+
+Imperative:
+  Procedural:
+    - C
+    - Pascal
+    - Fortran
+    - COBOL
+    - BASIC
+    - PL/I
+    - ALGOL
+    - Ada
+    - Modula-2
+    - Modula-3
+    - PL/M
+    - RATFOR
+    - FOCAL
+    - DIBOL-11
+    - RPG
+    - RPGIV
+    - NATURAL
+    - MAPPER
+    - MUMPS
+    - PROMAL
+    - BLISS
+    - BCPL
+    - B
+    - Oberon
+    - Oberon-07
+    - Component Pascal
+    - Zonnon
+    - Free Pascal/Lazarus
+    - Object Pascal
+    - Delphi
+    - PascalABC.NET
+    - Turbo-Basic XL
+    - GW-BASIC
+    - QBasic
+    - QuickBASIC
+    - FreeBASIC
+    - PowerBASIC
+    - Liberty BASIC
+    - True BASIC
+    - ANSI BASIC
+    - BBC BASIC
+    - Applesoft BASIC
+    - Commodore BASIC
+    - Atari BASIC
+    - MSX Basic
+    - Sinclair ZX81 BASIC
+    - TI BASIC
+    - TI-83 BASIC
+    - TI-89 BASIC
+    - Casio BASIC
+    - Integer BASIC
+    - Tiny BASIC
+    - EhBASIC
+    - Run BASIC
+    - SmileBASIC
+    - Craft Basic
+    - FUZE BASIC
+    - Gambas
+    - PureBasic
+    - BlitzMax
+    - B4J
+    - B4X
+    - COMAL
+    - Logo
+    - Lhogho
+    - PILOT
+    - HicEst
+    - ERRE
+
+  Structured:
+    - ALGOL 60
+    - ALGOL 68
+    - ALGOL-M
+    - ALGOL W
+    - PL/I
+    - PL/I-80
+    - Simula
+    - CLU
+    - Mesa
+    - Euclid
+    - Elan
+    - Action!
+    - Imp77
+    - JOVIAL
+    - Coral
+    - RTL/2
+    - MAD
+    - NELIAC
+
+  Assembly:
+    - Assembly
+    - 6502 Assembly
+    - 6800 Assembly
+    - 68000 Assembly
+    - 8051 Assembly
+    - 8080 Assembly
+    - 8086 Assembly
+    - 80386 Assembly
+    - AArch64 Assembly
+    - ARM Assembly
+    - MIPS Assembly
+    - PDP-11 Assembly
+    - Pentium Assembly
+    - PowerPC Assembly
+    - RISC-V Assembly
+    - SPARC Assembly
+    - VAX Assembly
+    - X86 Assembly
+    - X86-64 Assembly
+    - Z80 Assembly
+    - 360 Assembly
+    - Computer/zero Assembly
+    - EDSAC order code
+    - FRISC Assembly
+    - HLA
+    - LC2200 Assembly
+    - LC3 Assembly
+    - Little Man Computer
+    - M680x0
+    - MACRO-11
+    - MMIX
+    - OASYS Assembler
+    - SoneKing Assembly
+    - TI-83 Hex Assembly
+    - Viua VM assembly
+    - WebAssembly
+
+  Stack-Based:
+    - Forth
+    - Factor
+    - PostScript
+    - Joy
+    - Cat
+    - RetroForth
+    - Retro
+    - Gforth
+    - 8th
+    - 4th
+    - colorForth
+    - TransFORTH
+    - Oforth
+    - Min
+    - Stax
+    - Quackery
+    - Kitten
+    - Consize
+    - RPL
+    - RPL/2
+    - UserRPL
+    - Dc
+    - Bc
+
+  Array-Processing:
+    - APL
+    - J
+    - K
+    - BQN
+    - Nial
+    - A+
+    - Dyalog APL
+    - APLX
+    - GNU APL
+    - Q
+    - Uiua
+    - Klong
+    - Kap
+
+  Dataflow:
+    - LabVIEW
+    - Pure Data
+    - Simulink
+    - Lustre
+    - Esterel
+    - Signal
+    - Lucid
+    - Sisal
+    - StreamIt
+    - STELLA
+
+# ============================================================================
+# OBJECT-ORIENTED PARADIGM
+# ============================================================================
+
+Object-Oriented:
+  Class-Based:
+    - Java
+    - C++
+    - C#
+    - Eiffel
+    - Simula
+    - BETA
+    - Sather
+    - Blue
+    - Theta
+    - Cecil
+    - Modula-3
+    - Oberon-2
+    - Object Pascal
+    - Delphi
+    - Oxygene
+    - Clarion
+    - Clipper
+    - Harbour
+    - Visual Objects
+    - Visual FoxPro
+    - dBASE
+    - Progress
+    - ABAP
+    - PowerBuilder
+    - Uniface
+    - Cool
+    - Dart
+    - Kotlin
+    - Swift
+    - Vala
+    - Genie
+    - Ceylon
+    - Gosu
+    - Fantom
+    - Boo
+    - Nemerle
+    - Oxygene
+    - Chapel
+    - X10
+    - Fortress
+
+  Prototype-Based:
+    - JavaScript
+    - Lua
+    - Self
+    - Io
+    - Ioke
+    - NewtonScript
+    - Slate
+    - Cecil
+    - Omega
+    - MOO
+    - ColdFusion
+    - ActionScript
+    - E
+    - AmbientTalk
+    - Agora
+
+  Pure-OO:
+    - Smalltalk
+    - Ruby
+    - Eiffel
+    - Pharo
+    - Squeak
+    - GNU Smalltalk
+    - Dolphin Smalltalk
+    - VisualWorks
+    - CLOS
+    - Dylan
+    - Objective-C
+    - Logtalk
+
+  Component-Based:
+    - Delphi
+    - Visual Basic
+    - Visual Basic .NET
+    - VB6
+    - VBA
+    - VBScript
+    - C++/CLI
+    - C++ Builder
+    - PowerBuilder
+    - Xojo
+    - REALbasic
+    - LiveCode
+    - HyperTalk
+    - SuperTalk
+
+  Message-Passing-OO:
+    - Objective-C
+    - Smalltalk
+    - Self
+    - Io
+    - Logtalk
+    - Actor
+
+  Generic-OO:
+    - C++
+    - D
+    - Ada
+    - Rust
+    - Eiffel
+    - Scala
+    - Java
+    - C#
+    - Haxe
+    - Nim
+    - Crystal
+
+# ============================================================================
+# FUNCTIONAL PARADIGM
+# ============================================================================
+
+Functional:
+  Pure-Functional:
+    - Haskell
+    - Clean
+    - Elm
+    - PureScript
+    - Idris
+    - Miranda
+    - Lazy ML
+    - pH
+    - Eden
+    - GHC
+    - Hugs
+
+  Lisp-Family:
+    - Common Lisp
+    - Scheme
+    - Clojure
+    - Racket
+    - Emacs Lisp
+    - PicoLisp
+    - newLISP
+    - AutoLISP
+    - XLISP
+    - Acornsoft Lisp
+    - Arc
+    - Hy
+    - LFE
+    - Shen
+    - Owl Lisp
+    - OpenLisp
+    - EchoLisp
+    - Interlisp
+    - Franz Lisp
+    - T
+    - Lisp
+    - S-expressions
+    - Logo
+    - Dylan
+    - Julia
+    - Fennel
+    - Janet
+    - Carp
+    - Wisp
+
+  ML-Family:
+    - OCaml
+    - Standard ML
+    - F#
+    - Reason
+    - ReScript
+    - Alice ML
+    - MLton
+    - SML/NJ
+    - Poly/ML
+    - Moscow ML
+    - ML
+    - CakeML
+    - Manticore
+    - MLite
+    - Caml
+    - JoCaml
+    - MetaOCaml
+
+  Eager-Functional:
+    - OCaml
+    - Scheme
+    - Erlang
+    - Elixir
+    - F#
+    - Standard ML
+    - Racket
+    - Clojure
+    - Scala
+    - Swift
+    - Kotlin
+
+  Lazy-Functional:
+    - Haskell
+    - Clean
+    - Miranda
+    - Lazy ML
+    - Gofer
+    - Orwell
+    - Hope
+
+  Concatenative:
+    - Factor
+    - Cat
+    - Joy
+    - Kitten
+    - Om
+    - Trith
+    - XY
+    - Forth
+    - PostScript
+    - RPL
+
+  Dependently-Typed:
+    - Idris
+    - Agda
+    - Agda2
+    - Coq
+    - Lean
+    - ATS
+    - Epigram
+    - Cayenne
+    - F*
+    - Dafny
+    - Twelf
+    - NuPRL
+
+# ============================================================================
+# LOGIC PARADIGM
+# ============================================================================
+
+Logic:
+  Prolog-Family:
+    - Prolog
+    - SWI-Prolog
+    - GNU Prolog
+    - Visual Prolog
+    - B-Prolog
+    - XSB
+    - YAP
+    - Ciao
+    - ECLiPSe
+    - Tau Prolog
+    - Jekejeke
+    - tuProlog
+    - JIProlog
+    - Strawberry Prolog
+    - Open Prolog
+    - Amzi Prolog
+    - IF Prolog
+    - LPA Prolog
+    - Quintus Prolog
+    - Sicstus
+    - Lambda Prolog
+    - Mercury
+    - Oz
+    - Alice
+
+  Constraint-Logic:
+    - ECLiPSe
+    - SICStus CLP
+    - Picat
+    - Gecode
+    - MiniZinc
+    - Oz
+    - CHIP
+    - B-Prolog
+    - CHR
+
+  Datalog:
+    - Datalog
+    - DES
+    - bddbddb
+    - Souffle
+    - LogicBlox
+    - Yedalog
+    - Flix
+
+  Answer-Set:
+    - Clingo
+    - DLV
+    - Smodels
+    - clasp
+    - WASP
+
+  Theorem-Proving:
+    - Coq
+    - Isabelle
+    - ACL2
+    - Twelf
+    - Lean
+    - HOL
+    - PVS
+    - Mizar
+    - Nuprl
+    - Agda
+    - Metamath
+    - Maude
+    - OBJ
+    - CafeOBJ
+    - TPTP
+
+  Rule-Based:
+    - CLIPS
+    - Drools
+    - OPS5
+    - Jess
+    - ILOG
+    - Blaze Advisor
+    - OPSJ
+    - Haley
+    - Clara
+    - Nools
+
+# ============================================================================
+# CONCURRENT PARADIGM
+# ============================================================================
+
+Concurrent:
+  Actor-Model:
+    - Erlang
+    - Elixir
+    - Pony
+    - SALSA
+    - AmbientTalk
+    - E
+    - ActorScript
+    - Akka
+    - Orleans
+    - Scala Actors
+    - Celluloid
+    - CAL Actor Language
+    - Rebeca
+    - Axum
+
+  CSP-Based:
+    - Go
+    - Occam
+    - Limbo
+    - Crystal
+    - Newsqueak
+    - Alef
+    - Squeak CSP
+    - JCSP
+    - CTJ
+    - Handel-C
+    - occam-pi
+    - XC
+
+  Parallel-Array:
+    - Chapel
+    - X10
+    - Fortress
+    - ZPL
+    - High Performance Fortran
+    - Co-array Fortran
+    - UPC
+    - Titanium
+    - NESL
+    - SISAL
+
+  GPU-Computing:
+    - CUDA
+    - OpenCL
+    - GLSL
+    - HLSL
+    - Metal
+    - SPIR-V
+    - OpenACC
+    - OpenMP
+    - Futhark
+    - Halide
+    - ArrayFire
+    - Thrust
+
+  Software-Transactional:
+    - Clojure
+    - Haskell
+    - Scala STM
+    - OCaml
+    - C++ TM
+    - Java STM
+
+  Reactive:
+    - Elm
+    - Flapjax
+    - RxJS
+    - Bacon.js
+    - Sodium
+    - ReactiveX
+    - Céu
+    - Esterel
+    - Lustre
+    - Signal
+
+# ============================================================================
+# SCRIPTING PARADIGM
+# ============================================================================
+
+Scripting:
+  General-Purpose:
+    - Python
+    - Ruby
+    - Perl
+    - Lua
+    - Tcl
+    - Groovy
+    - Raku
+    - Pike
+    - REBOL
+    - Red
+    - Icon
+    - Unicon
+    - SNOBOL4
+    - Snobol
+    - Io
+    - Wren
+    - MiniScript
+    - Squirrel
+    - Ring
+    - Arturo
+    - Gravity
+    - Nit
+    - Cobra
+    - Boo
+    - Nice
+    - Gosu
+    - Fantom
+    - Ceylon
+    - ChucK
+    - Processing
+    - Scratch
+    - Snap!
+    - Alice
+    - Kojo
+    - Greenfoot
+
+  Web-Client:
+    - JavaScript
+    - TypeScript
+    - CoffeeScript
+    - Dart
+    - Elm
+    - PureScript
+    - ClojureScript
+    - ReScript
+    - Reason
+    - LiveScript
+    - Haxe
+    - Opal
+    - Amber
+    - Brython
+    - Transcrypt
+    - Skulpt
+    - RapydScript
+    - Pyjs
+    - GWT
+
+  Web-Server:
+    - PHP
+    - ASP
+    - JSP
+    - ColdFusion
+    - Hack
+    - Perl
+    - Python
+    - Ruby
+    - Node.js
+    - Elixir
+    - Go
+    - Rust
+    - Java
+    - C#
+    - Ballerina
+    - Jolie
+
+  Shell:
+    - Bash
+    - UNIX Shell
+    - Zsh
+    - Fish
+    - Ksh
+    - C Shell
+    - PowerShell
+    - Batch File
+    - DCL
+    - JCL
+    - COMMAND.COM
+    - 4DOS Batch
+    - Nu
+    - Oil
+    - Elvish
+    - Xonsh
+    - Nushell
+
+  Text-Processing:
+    - AWK
+    - Sed
+    - Perl
+    - Raku
+    - Gawk
+    - Mawk
+    - Nawk
+    - Jq
+    - TXR
+    - SNOBOL4
+    - Icon
+    - Unicon
+    - M4
+    - Gema
+    - Refal
+
+  Embedded-Config:
+    - Lua
+    - Tcl
+    - Guile
+    - MoonScript
+    - Squirrel
+    - AngelScript
+    - ChaiScript
+    - Wren
+    - Janet
+    - Gravity
+    - Ring
+    - PAWN
+    - Small
+    - Io
+    - Jinx
+    - Neko
+    - Haxe
+
+  Game-Scripting:
+    - GDScript
+    - UnrealScript
+    - Squirrel
+    - AngelScript
+    - Lua
+    - GameMonkey
+    - Boo
+    - C# (Unity)
+    - Lingo
+    - ActionScript
+    - BlitzMax
+    - GML
+    - Inform 6
+    - Inform 7
+    - TADS
+    - Hugo
+    - Quest
+    - Ren'Py
+    - Ink
+    - Yarn
+
+# ============================================================================
+# SYSTEM PARADIGM
+# ============================================================================
+
+System:
+  Memory-Safe:
+    - Rust
+    - D
+    - Nim
+    - Zig
+    - Vale
+    - Pony
+    - ParaSail
+    - SPARK
+    - Safe C
+    - Cyclone
+    - Vault
+    - Checked C
+    - Cake
+    - Ante
+    - Austral
+
+  Traditional-Systems:
+    - C
+    - C++
+    - Assembly
+    - C2
+    - C3
+    - Odin
+    - Beef
+    - Hare
+    - Kit
+    - Cone
+    - V
+    - Vox
+    - Carp
+    - Myrddin
+    - Drew
+    - Jai
+
+  Hardware-Description:
+    - Verilog
+    - VHDL
+    - SystemVerilog
+    - Chisel
+    - AHDL
+    - Bluespec
+    - MyHDL
+    - Clash
+    - SpinalHDL
+    - nMigen
+    - Amaranth
+    - Silice
+    - Lola
+    - ELLA
+    - Handel-C
+
+  Operating-Systems:
+    - C
+    - Rust
+    - Zig
+    - D
+    - Nim
+    - Assembly
+    - Forth
+    - Oberon
+    - Modula-2
+    - Go
+    - Limbo
+    - HolyC
+    - TempleOS C
+    - Cowgol
+
+  Embedded:
+    - C
+    - MicroPython
+    - CircuitPython
+    - Forth
+    - Lua
+    - BASIC Stamp
+    - PBASIC
+    - Arduino
+    - Processing
+    - Energia
+    - Wiring
+    - AVR Assembly
+    - PIC Assembly
+    - NXC
+    - RobotC
+    - Prog8
+
+  Real-Time:
+    - Ada
+    - SPARK
+    - Real-Time Java
+    - Erlang
+    - Esterel
+    - Lustre
+    - SCADE
+    - SDL
+    - SpecC
+    - SystemC
+    - Timber
+    - Giotto
+    - Timed C
+    - Ravenscar
+
+# ============================================================================
+# SCIENTIFIC PARADIGM
+# ============================================================================
+
+Scientific:
+  Numerical:
+    - Fortran
+    - Julia
+    - Chapel
+    - X10
+    - Fortress
+    - ZPL
+    - MATLAB
+    - Octave
+    - Scilab
+    - FreeMat
+    - Euler
+    - Yorick
+    - IDL
+    - GDL
+    - PDL
+    - Futhark
+    - Halide
+
+  Statistical:
+    - R
+    - SAS
+    - Stata
+    - SPSS
+    - S
+    - S-PLUS
+    - Minitab
+    - JMP
+    - GAUSS
+    - Ox
+    - gretl
+    - EViews
+    - RATS
+    - LIMDEP
+    - SHAZAM
+
+  Symbolic-Math:
+    - Mathematica
+    - Maple
+    - Maxima
+    - Axiom
+    - Reduce
+    - Derive
+    - MuPAD
+    - Magma
+    - GAP
+    - Singular
+    - Macaulay2
+    - CoCoA
+    - Fermat
+    - PARI/GP
+    - Yacas
+    - SymPy
+    - Sage
+    - GiNaC
+    - Cadabra
+
+  Array-Oriented:
+    - MATLAB
+    - Octave
+    - Julia
+    - NumPy
+    - Scilab
+    - IDL
+    - APL
+    - J
+    - K
+    - Nial
+    - Futhark
+    - ArrayFire
+    - Eigen
+    - Armadillo
+    - Blitz++
+    - xtensor
+
+  Domain-Scientific:
+    - BioPython
+    - BioPerl
+    - BioRuby
+    - Biopython
+    - Bioconductor
+    - ChemPy
+    - RDKit
+    - OpenBabel
+    - AstroPy
+    - SunPy
+    - SpacePy
+    - PyMOL
+    - VMD
+    - GROMACS
+    - LAMMPS
+    - NAMD
+    - Gaussian
+    - GAMESS
+    - NWChem
+
+  Simulation:
+    - Modelica
+    - Simulink
+    - SimPy
+    - NetLogo
+    - STELLA
+    - Vensim
+    - AnyLogic
+    - Arena
+    - GPSS
+    - SIMSCRIPT
+    - Simula
+    - SLAM
+    - SIMAN
+    - ExtendSim
+    - FlexSim
+    - Plant Simulation
+
+# ============================================================================
+# MULTI-PARADIGM
+# ============================================================================
+
+Multi-Paradigm:
+  OO-Functional:
+    - Scala
+    - Kotlin
+    - F#
+    - OCaml
+    - Swift
+    - Rust
+    - D
+    - Nim
+    - Crystal
+    - Haxe
+    - Ceylon
+    - Fantom
+    - Gosu
+    - Nice
+    - Pizza
+    - MultiJava
+    - GJ
+    - Nemerle
+
+  Systems-Functional:
+    - Rust
+    - D
+    - Nim
+    - ATS
+    - Clean
+    - MLton
+    - Hare
+    - Zig
+    - Vale
+    - Cone
+    - Carp
+    - Pony
+
+  Scientific-Multi:
+    - Julia
+    - Python
+    - R
+    - MATLAB
+    - Octave
+    - Wolfram
+    - Mathematica
+    - Sage
+    - Maple
+
+  Modern-General:
+    - Python
+    - Swift
+    - Kotlin
+    - Dart
+    - Go
+    - Rust
+    - TypeScript
+    - Ruby
+    - Elixir
+    - Crystal
+    - Nim
+    - V
+    - Zig
+    - Mojo
+    - Carbon
+    - Vale
+
+  JVM-Multi:
+    - Scala
+    - Kotlin
+    - Clojure
+    - Groovy
+    - JRuby
+    - Jython
+    - Frege
+    - Ceylon
+    - Fantom
+    - Gosu
+    - Xtend
+    - Golo
+    - Mirah
+    - Nice
+
+  .NET-Multi:
+    - F#
+    - C#
+    - Visual Basic .NET
+    - Nemerle
+    - Boo
+    - IronPython
+    - IronRuby
+    - ClojureCLR
+    - Oxygene
+    - PascalABC.NET
+
+# ============================================================================
+# ESOTERIC & SPECIALIZED
+# ============================================================================
+
+Esoteric:
+  Minimalist:
+    - Brainfuck
+    - Whitespace
+    - INTERCAL
+    - Malbolge
+    - Befunge
+    - FALSE
+    - Unlambda
+    - Lazy K
+    - Iota
+    - Jot
+    - Binary Lambda Calculus
+    - SKI
+    - SNUSP
+    - Thue
+
+  Visual:
+    - Piet
+    - Scratch
+    - Snap!
+    - Blockly
+    - App Inventor
+    - Labyrinth
+    - AsciiDots
+    - Beeswax
+
+  Joke:
+    - LOLCODE
+    - Chef
+    - Shakespeare
+    - Rockstar
+    - ArnoldC
+    - Emojicode
+    - Monicelli
+    - TrumpScript
+    - HQ9+
+    - Whenever
+    - Hodor
+
+  Artistic:
+    - Chef
+    - Shakespeare
+    - Piet
+    - Velato
+    - Entropy
+
+Specialized:
+  Query:
+    - SQL
+    - MySQL
+    - PostgreSQL
+    - SQLite
+    - Oracle SQL
+    - MS SQL
+    - T-SQL
+    - PL/SQL
+    - PL/pgSQL
+    - HiveQL
+    - SparkSQL
+    - KSQL
+    - Cypher
+    - Gremlin
+    - SPARQL
+    - GraphQL
+    - OQL
+    - LINQ
+    - XQuery
+    - XPath
+    - JSONPath
+
+  Markup:
+    - HTML
+    - XML
+    - SGML
+    - Markdown
+    - reStructuredText
+    - AsciiDoc
+    - LaTeX
+    - TeX
+    - troff
+    - Texinfo
+    - DocBook
+    - YAML
+    - JSON
+    - TOML
+    - INI
+    - Properties
+
+  Configuration:
+    - Nix
+    - Dhall
+    - CUE
+    - Jsonnet
+    - HCL
+    - Terraform
+    - Puppet
+    - Chef
+    - Ansible
+    - Salt
+    - CFEngine
+    - Dockerfile
+    - CMake
+    - Make
+    - Ninja
+    - Meson
+    - Bazel
+    - Buck
+    - Gradle
+    - Maven
+    - Ant
+    - SBT
+    - Leiningen
+    - Cargo
+    - npm
+    - pip
+    - Bundler
+
+  Build-Tools:
+    - Make
+    - CMake
+    - Ninja
+    - Meson
+    - Bazel
+    - Buck
+    - Gradle
+    - Maven
+    - Ant
+    - SBT
+    - Leiningen
+    - Cargo
+    - npm
+    - Rake
+    - SCons
+    - Waf
+    - Premake
+
+# ============================================================================
+# SUMMARY STATISTICS
+# ============================================================================
+# Total Paradigms: 9 major + 2 special (Esoteric, Specialized)
+# Total Subcategories: 54 + 8 = 62
+# Languages mapped: ~970
+# Average languages per subcategory: ~16
