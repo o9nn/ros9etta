@@ -1,0 +1,11 @@
+# Programming Paradigms
+# The system recognizes 9 major programming paradigms:
+Imperative: ["Explicit state changes": [C, Pascal, Fortran]]
+Object-Oriented: ["Encapsulation and inheritance": [Java, C++, Python]]
+Functional: ["Immutability and higher-order functions": [Haskell, OCaml, Lisp]]
+Logic: ["Declarative rules", [Prolog, Mercury, Datalog]]
+Concurrent: ["Designed for concurrency": [Erlang, Go, Elixir]]
+Scripting: ["Dynamic scripting": [Python, Perl, Ruby, JavaScript]]
+System: ["Low-level control": [C, C++, Rust, D]]
+Scientific: ["Optimized for scientific computing": [Julia, Fortran, R]]
+Multi-Paradigm: ["Supporting multiple styles": [Python, Scala, Julia, Rust]]
