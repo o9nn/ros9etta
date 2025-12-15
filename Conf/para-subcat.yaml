@@ -1,0 +1,250 @@
+# Programming Paradigm Subcategories
+# Refined classification: 9 paradigms → 54 language types
+# Balance between 9 (too coarse) and 970 (too fine)
+#
+# Format: Paradigm → Subcategory → [description, [example languages]]
+# Each language type averages ~18 languages from the 970 total
+
+Imperative:
+  Procedural:
+    desc: "Traditional procedural with explicit control flow"
+    langs: [C, Pascal, Fortran, COBOL, BASIC, PL/I]
+
+  Structured:
+    desc: "Block-structured with strong typing"
+    langs: [ALGOL, Modula-2, Modula-3, Ada, Oberon]
+
+  Assembly:
+    desc: "Low-level assembly and machine code"
+    langs: [6502 Assembly, 8086 Assembly, ARM Assembly, MIPS Assembly, Z80 Assembly, x86 Assembly]
+
+  Stack-Based:
+    desc: "Stack-oriented execution model"
+    langs: [Forth, Factor, PostScript, Joy, Cat]
+
+  Array-Processing:
+    desc: "First-class array operations"
+    langs: [APL, J, K, BQN, Dyalog APL]
+
+  Dataflow:
+    desc: "Data-driven execution"
+    langs: [LabVIEW, Simulink, Pure Data, Max/MSP]
+
+Object-Oriented:
+  Class-Based:
+    desc: "Traditional class inheritance"
+    langs: [Java, C++, C#, Eiffel, Smalltalk]
+
+  Prototype-Based:
+    desc: "Prototype inheritance model"
+    langs: [JavaScript, Lua, Self, Io, NewtonScript]
+
+  Pure-OO:
+    desc: "Everything is an object"
+    langs: [Smalltalk, Ruby, Eiffel, Pharo]
+
+  Component-Based:
+    desc: "Component and interface oriented"
+    langs: [Delphi, Visual Basic, Object Pascal, C++/CLI]
+
+  Message-Passing-OO:
+    desc: "Emphasis on message dispatch"
+    langs: [Objective-C, Smalltalk, Self, Logtalk]
+
+  Generic-OO:
+    desc: "Template/generic programming focus"
+    langs: [C++, D, Ada, Rust]
+
+Functional:
+  Pure-Functional:
+    desc: "Referential transparency, no side effects"
+    langs: [Haskell, Clean, Elm, PureScript, Idris]
+
+  Lisp-Family:
+    desc: "Homoiconic, S-expression based"
+    langs: [Common Lisp, Scheme, Clojure, Racket, Emacs Lisp, PicoLisp]
+
+  ML-Family:
+    desc: "Hindley-Milner type inference"
+    langs: [OCaml, Standard ML, F#, Reason, ReScript]
+
+  Eager-Functional:
+    desc: "Strict evaluation by default"
+    langs: [OCaml, Scheme, Erlang, Elixir]
+
+  Lazy-Functional:
+    desc: "Lazy/non-strict evaluation"
+    langs: [Haskell, Clean, Miranda, Lazy ML]
+
+  Concatenative:
+    desc: "Point-free composition"
+    langs: [Factor, Cat, Joy, Kitten]
+
+  Dependently-Typed:
+    desc: "Types that depend on values"
+    langs: [Idris, Agda, Coq, Lean]
+
+Logic:
+  Prolog-Family:
+    desc: "Horn clause logic programming"
+    langs: [Prolog, SWI-Prolog, GNU Prolog, Sicstus]
+
+  Constraint-Logic:
+    desc: "Constraint satisfaction integrated"
+    langs: [ECLiPSe, SICStus CLP, Picat]
+
+  Datalog:
+    desc: "Recursive query language"
+    langs: [Datalog, Datomic, LogicBlox]
+
+  Answer-Set:
+    desc: "Answer set programming"
+    langs: [Clingo, DLV, Potassco]
+
+  Theorem-Proving:
+    desc: "Formal verification languages"
+    langs: [Coq, Isabelle, ACL2, Twelf, Lean]
+
+  Rule-Based:
+    desc: "Production rule systems"
+    langs: [CLIPS, Drools, OPS5, Jess]
+
+Concurrent:
+  Actor-Model:
+    desc: "Isolated actors with message passing"
+    langs: [Erlang, Elixir, Pony, SALSA]
+
+  CSP-Based:
+    desc: "Communicating sequential processes"
+    langs: [Go, Occam, Limbo, Crystal]
+
+  Parallel-Array:
+    desc: "Data-parallel operations"
+    langs: [Chapel, X10, Fortress, ZPL]
+
+  GPU-Computing:
+    desc: "GPU/SIMD programming"
+    langs: [CUDA, OpenCL, GLSL, HLSL]
+
+  Software-Transactional:
+    desc: "STM-based concurrency"
+    langs: [Clojure, Haskell STM, Scala STM]
+
+  Reactive:
+    desc: "Reactive streams and observables"
+    langs: [Elm, RxJS-based, Flapjax]
+
+Scripting:
+  General-Purpose:
+    desc: "Multi-domain scripting"
+    langs: [Python, Ruby, Perl, Lua]
+
+  Web-Client:
+    desc: "Browser-side scripting"
+    langs: [JavaScript, TypeScript, CoffeeScript, Dart]
+
+  Web-Server:
+    desc: "Server-side web scripting"
+    langs: [PHP, ASP, JSP, Python/Django]
+
+  Shell:
+    desc: "Command-line and system scripting"
+    langs: [Bash, PowerShell, Zsh, Fish]
+
+  Text-Processing:
+    desc: "Text manipulation specialists"
+    langs: [AWK, Sed, Perl, Raku]
+
+  Embedded-Config:
+    desc: "Embedded/configuration scripting"
+    langs: [Lua, Tcl, Guile, MoonScript]
+
+  Game-Scripting:
+    desc: "Game engine scripting"
+    langs: [GDScript, UnrealScript, Squirrel, AngelScript]
+
+System:
+  Memory-Safe:
+    desc: "Compile-time memory safety"
+    langs: [Rust, D, Nim, Zig]
+
+  Traditional-Systems:
+    desc: "Manual memory management"
+    langs: [C, C++, Assembly]
+
+  Hardware-Description:
+    desc: "Hardware design languages"
+    langs: [Verilog, VHDL, SystemVerilog, Chisel]
+
+  Operating-Systems:
+    desc: "OS development focused"
+    langs: [C, Rust, Zig, D]
+
+  Embedded:
+    desc: "Microcontroller/embedded systems"
+    langs: [C, MicroPython, Arduino, Forth]
+
+  Real-Time:
+    desc: "Real-time systems"
+    langs: [Ada, SPARK, Real-Time Java]
+
+Scientific:
+  Numerical:
+    desc: "High-performance numerical computing"
+    langs: [Fortran, Julia, C (numerical), Chapel]
+
+  Statistical:
+    desc: "Statistical analysis focus"
+    langs: [R, SAS, Stata, SPSS]
+
+  Symbolic-Math:
+    desc: "Computer algebra systems"
+    langs: [Mathematica, Maple, Maxima, SymPy]
+
+  Array-Oriented:
+    desc: "Matrix/tensor operations"
+    langs: [MATLAB, Octave, Julia, NumPy/Python]
+
+  Domain-Scientific:
+    desc: "Domain-specific scientific"
+    langs: [Bioconductor/R, ChemPy, AstroPy]
+
+  Simulation:
+    desc: "Modeling and simulation"
+    langs: [Modelica, Simulink, NetLogo, STELLA]
+
+Multi-Paradigm:
+  OO-Functional:
+    desc: "Object-functional hybrid"
+    langs: [Scala, Kotlin, F#, OCaml]
+
+  Systems-Functional:
+    desc: "Systems programming with FP"
+    langs: [Rust, D, Nim]
+
+  Scientific-Multi:
+    desc: "Scientific with multiple paradigms"
+    langs: [Julia, Python/NumPy, R]
+
+  Modern-General:
+    desc: "Modern multi-paradigm general purpose"
+    langs: [Python, Swift, Kotlin, Dart]
+
+  JVM-Multi:
+    desc: "JVM-based multi-paradigm"
+    langs: [Scala, Kotlin, Clojure, Groovy]
+
+  .NET-Multi:
+    desc: ".NET multi-paradigm languages"
+    langs: [F#, C#, Visual Basic .NET]
+
+# Summary Statistics:
+# - 9 Major Paradigms
+# - 54 Subcategories (Language Types)
+# - Target: ~18 languages per type on average
+# - Range: 9 < 54 < 970
+
+# Hierarchy Ratio Analysis:
+# - Paradigm:Type = 1:6 (9 → 54)
+# - Type:Language = 1:18 (54 → 970)
+# - Provides balanced granularity for classification
