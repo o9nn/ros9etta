@@ -78,6 +78,8 @@ if human in atomspace:
 
 **Files**:
 - `opencog-cogutil.hs` (343 lines) - Pure functions, immutability, composition
+- `opencog-atomspace.hs` (380 lines) - Immutable hypergraph with transitive inference
+- `opencog-cogserver.hs` (370 lines) - Pure functional command system with IO monad
 
 **Run**: `runghc opencog-cogutil.hs`
 
@@ -170,19 +172,134 @@ D = A .+ B # Broadcasted element-wise
 Σ = α + β
 ```
 
+### 6. Rust (Systems + Safety)
+**Path**: `Repo/opencog/*/Rust/`
+
+**Strengths**:
+- Memory safety without garbage collection
+- Ownership and borrowing system
+- Zero-cost abstractions
+- Pattern matching (enums, Option, Result)
+- Trait-based polymorphism
+- Compile-time guarantees
+
+**Files**:
+- `opencog-cogutil.rs` (380 lines) - Ownership, error handling, iterators
+
+**Compile**: `rustc opencog-cogutil.rs`
+**Run**: `./opencog-cogutil`
+
+**Example**:
+```rust
+// Ownership and borrowing
+let config = Config::new();
+let config_ref = &config;  // Borrow
+
+// Result type for error handling
+match config.load_from_file("config.conf") {
+    Ok(_) => println!("Loaded"),
+    Err(e) => println!("Error: {}", e),
+}
+
+// Powerful iterators
+let squares: Vec<u32> = (0..10).map(|x| x * x).collect();
+```
+
+### 7. Scheme/Lisp (Symbolic/Homoiconic)
+**Path**: `Repo/opencog/*/Scheme/`
+
+**Strengths**:
+- S-expressions (code and data unified)
+- Hygienic macros for meta-programming
+- First-class functions and closures
+- Tail recursion optimization
+- Homoiconicity (code is data)
+- Minimalist elegance
+
+**Files**:
+- `opencog-cogutil.scm` (390 lines) - Macros, closures, S-expressions
+
+**Run**: `scheme opencog-cogutil.scm` or `racket opencog-cogutil.scm`
+
+**Example**:
+```scheme
+;; Macros for meta-programming
+(define-syntax time-it
+  (syntax-rules ()
+    ((time-it name expr)
+     (let ((start (current-time))
+           (result expr))
+       (display-timing name start)
+       result))))
+
+;; Homoiconicity - code as data
+(define code '(+ 1 2 3))
+(eval code (interaction-environment))  ; => 6
+
+;; Closures with lexical scoping
+(define counter
+  (let ((count 0))
+    (lambda (op)
+      (case op
+        ((inc) (set! count (+ count 1)))
+        ((get) count)))))
+```
+
+### 8. Go (Concurrent/Simple)
+**Path**: `Repo/opencog/*/Go/`
+
+**Strengths**:
+- Simple, readable syntax
+- Built-in concurrency (goroutines, channels)
+- Fast compilation and execution
+- Struct embedding for composition
+- Interfaces for polymorphism
+- Explicit error handling
+
+**Files**:
+- `opencog-cogutil.go` (330 lines) - Goroutines, channels, simplicity
+
+**Run**: `go run opencog-cogutil.go`
+
+**Example**:
+```go
+// Goroutines and channels
+jobs := make(chan int, 100)
+results := make(chan int, 100)
+
+// Start workers
+for w := 1; w <= 4; w++ {
+    go func(id int) {
+        for item := range jobs {
+            results <- item * item
+        }
+    }(w)
+}
+
+// Send jobs
+for i := 0; i < 10; i++ {
+    jobs <- i
+}
+
+// Error handling
+if err := config.LoadFromFile("config.txt"); err != nil {
+    log.Fatal(err)
+}
+```
+
 ## Paradigm Comparison
 
 ### Feature Matrix
 
-| Feature | C++ | Python | Haskell | Prolog | Julia |
-|---------|-----|--------|---------|--------|-------|
-| **Typing** | Static/Strong | Dynamic | Static+Infer | Untyped | Optional |
-| **Paradigm** | OOP/Multi | Multi | Pure Functional | Logic | Multi+Scientific |
-| **Performance** | Very Fast | Moderate | Fast | Moderate | Very Fast |
-| **Memory Model** | Manual/RAII | GC | GC | GC | GC |
-| **AI Strength** | Systems | ML/Data Sci | Symbolic | Knowledge | Numerical |
-| **Concurrency** | Threads | Threading/Async | STM/Par | Backtrack | Parallel/Dist |
-| **Key Feature** | Control | Versatility | Purity | Inference | Dispatch |
+| Feature | C++ | Python | Haskell | Prolog | Julia | Rust | Scheme | Go |
+|---------|-----|--------|---------|--------|-------|------|--------|-----|
+| **Typing** | Static/Strong | Dynamic | Static+Infer | Untyped | Optional | Static/Strong | Dynamic | Static |
+| **Paradigm** | OOP/Multi | Multi | Pure Functional | Logic | Multi+Scientific | Systems | Lisp/Functional | Concurrent |
+| **Performance** | Very Fast | Moderate | Fast | Moderate | Very Fast | Very Fast | Moderate | Fast |
+| **Memory Model** | Manual/RAII | GC | GC | GC | GC | Ownership | GC | GC |
+| **AI Strength** | Systems | ML/Data Sci | Symbolic | Knowledge | Numerical | Safety | Symbolic | Concurrent |
+| **Concurrency** | Threads | Threading/Async | STM/Par | Backtrack | Parallel/Dist | Ownership | Continuations | Goroutines |
+| **Key Feature** | Control | Versatility | Purity | Inference | Dispatch | Safety | Macros | Simplicity |
 
 ### Problem-Solving Approaches
 
@@ -224,6 +341,26 @@ to_lower([H|T], [L|LT]) :-
 to_lower(s::String) = lowercase(s)  # Multiple dispatch
 ```
 
+**Rust**: Ownership and iterators
+```rust
+fn to_lower(text: &str) -> String {
+    text.to_lowercase()
+}
+```
+
+**Scheme**: Functional with map
+```scheme
+(define (to-lower s)
+  (list->string (map char-downcase (string->list s))))
+```
+
+**Go**: Simple method
+```go
+func (StringUtils) ToLower(text string) string {
+    return strings.ToLower(text)
+}
+```
+
 ## RosettaCog Philosophy
 
 Each implementation demonstrates:
@@ -242,6 +379,9 @@ Each implementation demonstrates:
 **Haskell**: Compilers, financial systems, formal verification, type-safe systems
 **Prolog**: Expert systems, NLP, knowledge bases, constraint solving
 **Julia**: Scientific computing, numerical analysis, data science, simulations
+**Rust**: Systems programming, web services, embedded systems, performance-critical
+**Scheme**: AI research, symbolic computation, language design, education
+**Go**: Web services, distributed systems, cloud infrastructure, microservices
 
 ## Testing
 
@@ -260,6 +400,8 @@ echo "exit" | python3 opencog-cogserver.py
 ### Haskell
 ```bash
 runghc opencog-cogutil.hs
+runghc opencog-atomspace.hs
+echo "exit" | runghc opencog-cogserver.hs
 ```
 
 ### Prolog
@@ -272,13 +414,45 @@ swipl -g demo -t halt opencog-atomspace.pl
 julia opencog-cogutil.jl
 ```
 
+### Rust
+```bash
+rustc opencog-cogutil.rs && ./opencog-cogutil
+```
+
+### Scheme
+```bash
+scheme opencog-cogutil.scm
+# or
+racket opencog-cogutil.scm
+```
+
+### Go
+```bash
+go run opencog-cogutil.go
+```
+
 ## Statistics
 
-- **Total Languages**: 5 (C++, Python, Haskell, Prolog, Julia)
-- **Total Files**: 10+ implementations
-- **Total Lines**: ~3,500+ lines of code
-- **Paradigms**: OOP, Functional, Logic, Multi-paradigm, Scientific
+- **Total Languages**: 8 (C++, Python, Haskell, Prolog, Julia, Rust, Scheme, Go)
+- **Total Files**: 16+ implementations
+- **Total Lines**: ~5,500+ lines of code
+- **Paradigms**: OOP, Functional, Logic, Multi-paradigm, Scientific, Systems, Lisp, Concurrent
 - **All Tested**: ✓ Compiles/runs successfully
+
+### Implementation Coverage
+
+| Language | cogutil | atomspace | cogserver | Total |
+|----------|---------|-----------|-----------|-------|
+| C++ | ✅ | ✅ | ✅ | 3/3 |
+| Python | ✅ | ✅ | ✅ | 3/3 |
+| Haskell | ✅ | ✅ | ✅ | 3/3 |
+| Prolog | ❌ | ✅ | ❌ | 1/3 |
+| Julia | ✅ | ❌ | ❌ | 1/3 |
+| Rust | ✅ | ❌ | ❌ | 1/3 |
+| Scheme | ✅ | ❌ | ❌ | 1/3 |
+| Go | ✅ | ❌ | ❌ | 1/3 |
+
+**Complete Implementations**: 3 languages (C++, Python, Haskell)
 
 ## Key Takeaways
 
