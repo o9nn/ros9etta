@@ -252,8 +252,9 @@ func (StringUtils) SnakeToCamel(text string) string {
 	for i, part := range parts {
 		if i == 0 {
 			result.WriteString(part)
-		} else {
-			result.WriteString(strings.Title(part))
+		} else if len(part) > 0 {
+			// Capitalize first letter manually (strings.Title is deprecated in Go 1.18+)
+			result.WriteString(strings.ToUpper(string(part[0])) + part[1:])
 		}
 	}
 	return result.String()
@@ -405,6 +406,8 @@ func demonstrateCogutil() {
 	
 	var result int
 	TimeIt("fibonacci", func() {
+		// Note: Using naive recursive fibonacci for demonstration
+		// O(2^n) complexity - suitable for small n only
 		fibonacci := func(n int) int {
 			var fib func(int) int
 			fib = func(n int) int {

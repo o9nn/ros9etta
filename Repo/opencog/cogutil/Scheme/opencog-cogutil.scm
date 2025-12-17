@@ -10,6 +10,11 @@
 ;; - Macros for meta-programming
 ;; - Tail recursion optimization
 ;; - Homoiconicity (code is data)
+;;
+;; Note: This implementation uses some functions that may require:
+;; - SRFI-19 for time functions (current-time, time-second, etc.)
+;; - SRFI-1 for list utilities (iota, etc.)
+;; Most Scheme implementations (Racket, Guile, Chez) include these by default
 
 ;; ===== Logger System =====
 ;; Demonstrates: Records, closures, higher-order functions
